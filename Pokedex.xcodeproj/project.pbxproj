@@ -12,6 +12,7 @@
 		37E7D17E2BA4AA2000F7D58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D17D2BA4AA2000F7D58C /* Assets.xcassets */; };
 		37E7D1812BA4AA2000F7D58C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D17F2BA4AA2000F7D58C /* LaunchScreen.storyboard */; };
 		37E7D18F2BA4ACD000F7D58C /* POHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D18E2BA4ACD000F7D58C /* POHomeController.swift */; };
+		37E7D1912BA4AF5400F7D58C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D1902BA4AF5400F7D58C /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		37E7D1802BA4AA2000F7D58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E7D1822BA4AA2000F7D58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E7D18E2BA4ACD000F7D58C /* POHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POHomeController.swift; sourceTree = "<group>"; };
+		37E7D1902BA4AF5400F7D58C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		37E7D1882BA4AC3600F7D58C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				37E7D1902BA4AF5400F7D58C /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				37E7D18F2BA4ACD000F7D58C /* POHomeController.swift in Sources */,
 				37E7D1752BA4AA1F00F7D58C /* AppDelegate.swift in Sources */,
 				37E7D1772BA4AA1F00F7D58C /* SceneDelegate.swift in Sources */,
+				37E7D1912BA4AF5400F7D58C /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
