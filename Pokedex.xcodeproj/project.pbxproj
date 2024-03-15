@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		37E7D1752BA4AA1F00F7D58C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D1742BA4AA1F00F7D58C /* AppDelegate.swift */; };
 		37E7D1772BA4AA1F00F7D58C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D1762BA4AA1F00F7D58C /* SceneDelegate.swift */; };
-		37E7D1792BA4AA1F00F7D58C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D1782BA4AA1F00F7D58C /* ViewController.swift */; };
-		37E7D17C2BA4AA1F00F7D58C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D17A2BA4AA1F00F7D58C /* Main.storyboard */; };
 		37E7D17E2BA4AA2000F7D58C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D17D2BA4AA2000F7D58C /* Assets.xcassets */; };
 		37E7D1812BA4AA2000F7D58C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E7D17F2BA4AA2000F7D58C /* LaunchScreen.storyboard */; };
+		37E7D18F2BA4ACD000F7D58C /* POHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E7D18E2BA4ACD000F7D58C /* POHomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		37E7D1712BA4AA1F00F7D58C /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E7D1742BA4AA1F00F7D58C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E7D1762BA4AA1F00F7D58C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37E7D1782BA4AA1F00F7D58C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		37E7D17B2BA4AA1F00F7D58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E7D17D2BA4AA2000F7D58C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E7D1802BA4AA2000F7D58C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E7D1822BA4AA2000F7D58C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E7D18E2BA4ACD000F7D58C /* POHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POHomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,62 @@
 		37E7D1732BA4AA1F00F7D58C /* Pokedex */ = {
 			isa = PBXGroup;
 			children = (
-				37E7D1742BA4AA1F00F7D58C /* AppDelegate.swift */,
-				37E7D1762BA4AA1F00F7D58C /* SceneDelegate.swift */,
-				37E7D1782BA4AA1F00F7D58C /* ViewController.swift */,
-				37E7D17A2BA4AA1F00F7D58C /* Main.storyboard */,
-				37E7D17D2BA4AA2000F7D58C /* Assets.xcassets */,
-				37E7D17F2BA4AA2000F7D58C /* LaunchScreen.storyboard */,
+				37E7D18A2BA4AC3C00F7D58C /* Controllers */,
+				37E7D18C2BA4AC4100F7D58C /* Models */,
+				37E7D1892BA4AC3900F7D58C /* Services */,
+				37E7D18D2BA4AC5800F7D58C /* Support */,
+				37E7D1882BA4AC3600F7D58C /* Utils */,
+				37E7D18B2BA4AC3E00F7D58C /* Views */,
 				37E7D1822BA4AA2000F7D58C /* Info.plist */,
 			);
 			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		37E7D1882BA4AC3600F7D58C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		37E7D1892BA4AC3900F7D58C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		37E7D18A2BA4AC3C00F7D58C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				37E7D18E2BA4ACD000F7D58C /* POHomeController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		37E7D18B2BA4AC3E00F7D58C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37E7D18C2BA4AC4100F7D58C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37E7D18D2BA4AC5800F7D58C /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				37E7D1742BA4AA1F00F7D58C /* AppDelegate.swift */,
+				37E7D1762BA4AA1F00F7D58C /* SceneDelegate.swift */,
+				37E7D17D2BA4AA2000F7D58C /* Assets.xcassets */,
+				37E7D17F2BA4AA2000F7D58C /* LaunchScreen.storyboard */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +172,6 @@
 			files = (
 				37E7D1812BA4AA2000F7D58C /* LaunchScreen.storyboard in Resources */,
 				37E7D17E2BA4AA2000F7D58C /* Assets.xcassets in Resources */,
-				37E7D17C2BA4AA1F00F7D58C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E7D1792BA4AA1F00F7D58C /* ViewController.swift in Sources */,
+				37E7D18F2BA4ACD000F7D58C /* POHomeController.swift in Sources */,
 				37E7D1752BA4AA1F00F7D58C /* AppDelegate.swift in Sources */,
 				37E7D1772BA4AA1F00F7D58C /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		37E7D17A2BA4AA1F00F7D58C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37E7D17B2BA4AA1F00F7D58C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		37E7D17F2BA4AA2000F7D58C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,9 +333,8 @@
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +342,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliviergeiger.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,9 +364,8 @@
 				INFOPLIST_FILE = Pokedex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +373,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.oliviergeiger.Pokedex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
