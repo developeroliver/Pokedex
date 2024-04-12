@@ -13,6 +13,7 @@ struct Pokemon: Decodable {
     let name: String
     let image: String
     let apiTypes: [PokemonType]
+    let stats: Stats
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -20,6 +21,7 @@ struct Pokemon: Decodable {
         case name
         case image = "image"
         case apiTypes 
+        case stats
     }
     
     init(from decoder: Decoder) throws {
@@ -29,10 +31,11 @@ struct Pokemon: Decodable {
         name = try container.decode(String.self, forKey: .name)
         image = try container.decode(String.self, forKey: .image)
         apiTypes = try container.decode([PokemonType].self, forKey: .apiTypes)
+        stats = try container.decode(Stats.self, forKey: .stats)
     }
 }
 
-struct PokemonType: Codable {
+struct PokemonType: Decodable {
     let name: String
     let image: String
     
@@ -45,5 +48,33 @@ struct PokemonType: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         image = try container.decode(String.self, forKey: .image)
+    }
+}
+
+struct Stats: Decodable {
+    let HP: Int
+    let attack: Int
+    let defense: Int
+    let specialAttack: Int
+    let specialDefense: Int
+    let speed: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case HP
+        case attack
+        case defense
+        case specialAttack = "special_attack"
+        case specialDefense = "special_defense"
+        case speed
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        HP = try container.decode(Int.self, forKey: .HP)
+        attack = try container.decode(Int.self, forKey: .attack)
+        defense = try container.decode(Int.self, forKey: .defense)
+        specialAttack = try container.decode(Int.self, forKey: .specialAttack)
+        specialDefense = try container.decode(Int.self, forKey: .specialDefense)
+        speed = try container.decode(Int.self, forKey: .speed)
     }
 }

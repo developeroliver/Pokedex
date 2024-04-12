@@ -10,25 +10,22 @@ import SnapKit
 
 class PokemonDetailsViewController: UIViewController {
     
+    // MARK: - PROPERTIES
     let pokemon: Pokemon
     
+    // MARK: - UI DECLARATION
     private let pokemonImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
-        return label
-    }()
+    private let nameLabel = PokemonLabel(text: "", fontSize: 22)
     
     private let numberLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
         return label
     }()
-    
     private let type1ImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
@@ -39,6 +36,29 @@ class PokemonDetailsViewController: UIViewController {
         return imageView
     }()
     
+    private let hpLabel = PokemonLabel(text: "HP:", fontSize: 22)
+    private let attackLabel = PokemonLabel(text: "Attack:", fontSize: 22)
+    private let defenseLabel = PokemonLabel(text: "Defense:", fontSize: 22)
+    private let specialAttackLabel = PokemonLabel(text: "Special Attack:", fontSize: 22)
+    private let specialDefenseLabel = PokemonLabel(text: "Special defense:", fontSize: 22)
+    private let speedLabel = PokemonLabel(text: "Speed:", fontSize: 22)
+    
+    // MARK: - UISTACKVIEW
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            hpLabel,
+            attackLabel,
+            defenseLabel,
+            specialAttackLabel,
+            specialDefenseLabel,
+            speedLabel,
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    // MARK: - LIFECYCLE METHODS
     init(pokemon: Pokemon) {
         self.pokemon = pokemon
         super.init(nibName: nil, bundle: nil)
@@ -52,7 +72,13 @@ class PokemonDetailsViewController: UIViewController {
         super.viewDidLoad()
         layout()
         setupPokemonsDetails()
+        animateImage()
+        animateLabels()
     }
+}
+
+// MARK: - FUNCTIONS
+extension PokemonDetailsViewController {
     
     private func layout() {
         view.backgroundColor = .systemBackground
@@ -97,14 +123,21 @@ class PokemonDetailsViewController: UIViewController {
         
         
         view.addSubview(pokemonImageView)
+        view.addSubview(nameLabel)
         view.addSubview(numberLabel)
         view.addSubview(type1ImageView)
         view.addSubview(type2ImageView)
+        view.addSubview(stackView)
         
         pokemonImageView.snp.makeConstraints { make in
             make.height.width.equalTo(200)
-            make.top.equalToSuperview().offset(100)
+            make.top.equalToSuperview().offset(130)
             make.centerX.equalTo(view.snp.centerX)
+        }
+        
+        nameLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(pokemonImageView.snp.bottom).offset(20)
         }
         
         numberLabel.snp.makeConstraints { make in
@@ -115,23 +148,26 @@ class PokemonDetailsViewController: UIViewController {
         if pokemon.apiTypes.count == 1 {
             type1ImageView.snp.makeConstraints { make in
                 make.height.width.equalTo(40)
-                make.top.equalTo(pokemonImageView.snp.bottom).offset(10)
+                make.top.equalTo(nameLabel.snp.bottom).offset(40)
                 make.centerX.equalToSuperview()
             }
         } else {
             type1ImageView.snp.makeConstraints { make in
                 make.height.width.equalTo(40)
-                make.top.equalTo(pokemonImageView.snp.bottom).offset(10)
+                make.top.equalTo(nameLabel.snp.bottom).offset(40)
                 make.leading.equalTo(view.snp.leading).offset(130)
             }
             type2ImageView.snp.makeConstraints { make in
                 make.height.width.equalTo(40)
-                make.top.equalTo(pokemonImageView.snp.bottom).offset(10)
+                make.top.equalTo(nameLabel.snp.bottom).offset(40)
                 make.trailing.equalTo(view.snp.trailing).offset(-130)
             }
         }
         
-        
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(type1ImageView.snp.bottom).offset(80)
+            make.leading.equalToSuperview().offset(30)
+        }
     }
     
     
@@ -147,6 +183,7 @@ class PokemonDetailsViewController: UIViewController {
                 }
             }.resume()
         }
+        nameLabel.text = pokemon.name
         
         switch pokemon.id {
         case 0...9:
@@ -159,4 +196,38 @@ class PokemonDetailsViewController: UIViewController {
             return numberLabel.text = "#\(pokemon.id)"
         }
     }
+    
+    private func animateLabels() {
+        hpLabel.text = "HP: \(pokemon.stats.HP)"
+        attackLabel.text = "Attack: \(pokemon.stats.attack)"
+        defenseLabel.text = "Defense: \(pokemon.stats.defense)"
+        specialAttackLabel.text = "Special Attack: \(pokemon.stats.specialAttack)"
+        specialDefenseLabel.text = "Special Defense: \(pokemon.stats.specialDefense)"
+        speedLabel.text = "Speed: \(pokemon.stats.speed)"
+        
+        hpLabel.transform = CGAffineTransform(translationX: -100, y: 50)
+        attackLabel.transform = CGAffineTransform(translationX: -200, y: 150)
+        defenseLabel.transform = CGAffineTransform(translationX: -300, y:
+                                                    250)
+        specialAttackLabel.transform = CGAffineTransform(translationX: -400, y: 350)
+        specialDefenseLabel.transform = CGAffineTransform(translationX: -500, y: 450)
+        speedLabel.transform = CGAffineTransform(translationX: -600, y: 550)
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.hpLabel.transform = .identity
+            self.attackLabel.transform = .identity
+            self.defenseLabel.transform = .identity
+            self.specialAttackLabel.transform = .identity
+            self.specialDefenseLabel.transform = .identity
+            self.speedLabel.transform = .identity
+        }, completion: nil)
+    }
+
+    private func animateImage() {
+        pokemonImageView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.pokemonImageView.transform = .identity
+        }, completion: nil)
+    }
+
 }

@@ -8,6 +8,7 @@
 import UIKit
 
 class PokemonTableViewController: UITableViewController {
+    
     // MARK: - PROPERTIES
     var pokemons: [Pokemon] = []
     
@@ -18,6 +19,18 @@ class PokemonTableViewController: UITableViewController {
         setupGetAllPokemon()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard tableView.numberOfRows(inSection: 0) > 0 else {
+            return
+        }
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .top, animated: false)
+    }
+    
+    // MARK: - FUNCTIONS
     private func layout() {
         title = "Pokedex"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -53,7 +66,7 @@ class PokemonTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let backButton = UIBarButtonItem()
         backButton.title = pokemons[indexPath.row].name
-            navigationItem.backBarButtonItem = backButton
+        navigationItem.backBarButtonItem = backButton
         
         let pokemon = pokemons[indexPath.row]
         let navigation = PokemonDetailsViewController(pokemon: pokemon)

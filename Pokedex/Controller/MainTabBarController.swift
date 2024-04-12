@@ -13,7 +13,7 @@ class MainTabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemOrange
-        viewControllers                 = [createHomeNC(), createFavoritesNC(), createTypesNC(), createProfileNC()]
+        viewControllers                 = [createHomeNC(), createSearchNC(), createTypesNC(), createProfileNC()]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,15 +35,15 @@ class MainTabBarViewController: UITabBarController {
     }
     
     
-    func createFavoritesNC() -> UINavigationController {
-        let favoriteVC         = PokemonFavoriteViewController()
-        favoriteVC.tabBarItem  = UITabBarItem(title: "Favoris", image: UIImage(systemName: "star"), tag: 1)
+    func createSearchNC() -> UINavigationController {
+        let SearchVC         = PokemonSearchViewController()
+        SearchVC.tabBarItem  = UITabBarItem(title: "Rechercher", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         
-        return UINavigationController(rootViewController: favoriteVC)
+        return UINavigationController(rootViewController: SearchVC)
     }
     
     func createTypesNC() -> UINavigationController {
-        let typesVC         = PokemontypesTableViewController()
+        let typesVC         = PokemonTypesTableViewController()
         typesVC.tabBarItem  = UITabBarItem(title: "Types", image: UIImage(systemName: "poweroutlet.type.a"), tag: 2)
         
         return UINavigationController(rootViewController: typesVC)
